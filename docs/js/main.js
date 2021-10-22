@@ -28,6 +28,9 @@ let winningPointBox = document.getElementById('winningPoint')
 let banner = document.getElementById('banner')
 let winnerBox = document.getElementById('winner')
 
+let u1 = document.getElementById('u1')
+let u2 = document.getElementById('u2')
+
 
 function htmlUpdater() {
     if (user1Turn) {
@@ -77,6 +80,13 @@ function turnDecider(point) {
     }
 }
 
+// if (point == 6) {
+//     user1Turn = user1Turn;
+// }
+// else {
+//     user1Turn = !user1Turn;
+// }
+
 
 function winnerDecider() {
     if(user1Point >= winningPoint) {
@@ -90,17 +100,9 @@ function winnerDecider() {
     if (!gameRunning) {
         console.log(`winner is ${winner}`);
         winnerBox.textContent = winner;
-        banner.style.display = 'block'
+        banner.style.display = 'inline'
     }
 }
-
-// if (point == 6) {
-//     user1Turn = user1Turn;
-// }
-// else {
-//     user1Turn = !user1Turn;
-// }
-
 
 
 function random() {
@@ -112,6 +114,24 @@ let screens = document.getElementById('screens')
 let btn = document.getElementById('dice')
 
 
+
+function hover() {
+    if(user1Turn) {
+        if (user2NameBox.style.backgroundColor == 'blueviolet') {
+            user2NameBox.style.backgroundColor = 'transparent'
+            user1NameBox.style.backgroundColor = 'blueviolet'
+        }
+    }
+    else{
+        if ( user1NameBox.style.backgroundColor == 'blueviolet') {
+            user1NameBox.style.backgroundColor = 'transparent'
+            user2NameBox.style.backgroundColor = 'blueviolet'
+        }
+    
+    }
+}
+
+
 function rollDice() {
     let result = random();
     screens.textContent = result; 
@@ -119,8 +139,52 @@ function rollDice() {
     turnDecider(result)
     htmlUpdater()
     winnerDecider()
+    hover()
 }
 
 
 
 btn.addEventListener('click', rollDice)
+
+btn.addEventListener('mouseover', () => {
+    if (user1Turn) {
+        user1NameBox.style.backgroundColor = 'blueviolet'
+    }
+    else {
+        user2NameBox.style.backgroundColor = 'blueviolet'
+    }
+})
+
+btn.addEventListener('mouseout', () => {
+    user1NameBox.style.backgroundColor = 'transparent'
+    user2NameBox.style.backgroundColor = 'transparent'
+})
+
+user1NameBox.addEventListener('click', () => {
+    user1NameBox.style.display = 'none';
+    u1.style.display = 'inline';
+})
+
+document.getElementById('user1submit').addEventListener('click', () => {
+    let n1 = document.getElementById('user1input').value
+    user1 = n1
+    htmlUpdater()
+    u1.style.display = 'none';
+    user1NameBox.style.display = 'inline';
+})
+
+user2NameBox.addEventListener('click', () => {
+    user2NameBox.style.display = 'none';
+    u2.style.display = 'inline';
+})
+
+document.getElementById('user2submit').addEventListener('click', () => {
+    let n2 = document.getElementById('user2input').value
+    user2 = n2
+    htmlUpdater()
+    u2.style.display = 'none'
+    user2NameBox.style.display = 'inline';
+})
+
+
+

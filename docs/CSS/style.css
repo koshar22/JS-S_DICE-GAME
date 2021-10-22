@@ -1,9 +1,11 @@
 body {
-    background-color: #16a085;
-    color: #fff;
-    font-family: 'Averia Gruesa Libre';
+    background-color: #e17055;
+    /* color: #d63031; */
+    /* font-family: 'Averia Gruesa Libre'; */
+    /* font-family: 'Alfa Slab One'; */
+    font-family: 'Archivo Black';
     /* font-weight: bolder; */
-    /* font-size: larger; */
+    font-size: larger;
 } 
 
 .center {
@@ -11,8 +13,9 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);   
-    background-color: #2d3436;
+    background-color:  #f8c291;
     padding: 30px 50px;
+    border: 3px solid #000;
 }
 
 
@@ -24,15 +27,18 @@ body {
 
 button {
     font-size: larger;
-    background-color: blueviolet;
+    font-weight: bolder ;
+    background-color: #9b59b6;
     border: 2px solid rgb(65, 64, 66);
-    color: #fff;
-    text-transform: uppercase;
+    /* color: rgb(172, 213, 223); */
+    /* text-transform: uppercase; */
     padding: 15px 25px;
     margin-top: 20px;
     cursor: pointer;
     width: 100%;
-    font-family: 'Averia Gruesa Libre';
+    /* font-family: 'Averia Gruesa Libre'; */
+    font-family: 'Archivo Black';
+    /* border-radius: 0%; */
 }
 
 h1 > span {
@@ -54,6 +60,7 @@ h1 > span {
     width: 100vw;
     height: 100vh;
     background-color: #000;
+    color: #fff;
 }
 
 #banner > h1 {
@@ -94,4 +101,8 @@ h1 > span {
 .point > span {
     border: 3px solid #000;
     padding: 50px 100px;
+}
+
+#u1, #u2 {
+    display: none;
 }
